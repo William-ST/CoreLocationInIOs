@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreLocationEnIOs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,76 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivK-cf-psi">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoreLocation en iOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98q-6W-8eD">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="157" id="9iH-cd-goI"/>
+                                            <constraint firstAttribute="height" constant="21" id="Iqz-Wy-kca"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.66109913789999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="98q-6W-8eD" firstAttribute="centerX" secondItem="ivK-cf-psi" secondAttribute="centerX" id="5lG-EG-VJr"/>
+                                    <constraint firstAttribute="height" constant="55" id="CGH-qz-kRM"/>
+                                    <constraint firstItem="98q-6W-8eD" firstAttribute="centerY" secondItem="ivK-cf-psi" secondAttribute="centerY" id="hPg-kz-Fjv"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Coordenadas:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-jf-pU4">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="349" id="PIu-sN-Kxe"/>
+                                    <constraint firstAttribute="width" constant="300" id="PeT-qo-5rC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-QB-YNo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5qP-Bh-rQQ"/>
+                                    <constraint firstAttribute="width" constant="126" id="lfd-gx-KKM"/>
+                                </constraints>
+                                <state key="normal" title="Solicitar ubicación"/>
+                                <connections>
+                                    <action selector="btnRequestLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VZS-6v-y1k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7o-rY-vGu">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DwF-5y-aEz"/>
+                                    <constraint firstAttribute="width" constant="147" id="gGL-N6-pTj"/>
+                                </constraints>
+                                <state key="normal" title="Activar Core Location"/>
+                                <connections>
+                                    <action selector="actionEnableLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NeK-6Z-cqt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ivK-cf-psi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7X7-X2-cNr"/>
+                            <constraint firstItem="v1X-jf-pU4" firstAttribute="top" secondItem="Y7o-rY-vGu" secondAttribute="bottom" constant="10" id="BXh-VF-Jc8"/>
+                            <constraint firstItem="v1X-jf-pU4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C1h-7o-Dqc"/>
+                            <constraint firstItem="Q1o-QB-YNo" firstAttribute="top" secondItem="v1X-jf-pU4" secondAttribute="bottom" constant="20" id="FQn-O3-TX4"/>
+                            <constraint firstAttribute="trailing" secondItem="ivK-cf-psi" secondAttribute="trailing" id="Fb6-41-TNl"/>
+                            <constraint firstItem="Y7o-rY-vGu" firstAttribute="top" secondItem="ivK-cf-psi" secondAttribute="bottom" constant="20" id="L4N-mD-XsZ"/>
+                            <constraint firstItem="Q1o-QB-YNo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OJC-9G-sUi"/>
+                            <constraint firstItem="Y7o-rY-vGu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TUx-Tj-tAp"/>
+                            <constraint firstItem="ivK-cf-psi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="epS-iB-Hyr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textViewCoordenates" destination="v1X-jf-pU4" id="S1q-pZ-Rag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
